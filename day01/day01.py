@@ -1,4 +1,3 @@
-import numpy as np
 from typing import List
 
 with open('input.txt') as f:
@@ -14,25 +13,24 @@ example = [
 ]
 
 # part 1
-def find_2020_product(receipts: List[int]) -> int:
+def find_2020_product(receipts: List[int], year: int) -> int:
     for exp1 in receipts:
         for exp2 in receipts[1:]:
-            if exp1 + exp2 == 2020:
+            if exp1 + exp2 == year:
                 return exp1 * exp2
 
-assert find_2020_product(example) == 514579
+assert find_2020_product(example, 2020) == 514579
 
-print(find_2020_product(inputs))
+print(find_2020_product(inputs, 2020))
 
 # part 2
-
-def find_2020_product3(receipts: List[int]) -> int:
+def find_2020_product3(receipts: List[int], year: int) -> int:
     for exp1 in receipts:
         for exp2 in receipts[1:]:
             for exp3 in receipts[2:]:
-                if exp1 + exp2 + exp3 == 2020:
+                if exp1 + exp2 + exp3 == year:
                     return exp1 * exp2 * exp3
 
-assert find_2020_product3(example) == 241861950
+assert find_2020_product3(example, 2020) == 241861950
 
-print(find_2020_product3(inputs))
+print(find_2020_product3(inputs, 2020))
