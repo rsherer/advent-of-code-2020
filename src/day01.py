@@ -1,6 +1,6 @@
 from typing import List
 
-with open("day01.txt") as f:
+with open("inputs/day01.txt") as f:
     inputs = [int(num) for num in f.readlines()]
 
 example = [1721, 979, 366, 299, 675, 1456]

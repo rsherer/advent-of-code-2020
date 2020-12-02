@@ -2,7 +2,7 @@
 # part 1
 from typing import List
 
-with open("day02.txt") as f:
+with open("inputs/day02.txt") as f:
     passwords = [line.strip().split() for line in f]
 
 example = [
