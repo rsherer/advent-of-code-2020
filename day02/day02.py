@@ -1,6 +1,5 @@
 # advent of code 2020 day 2
 # part 1
-from collections import Counter
 from typing import List
 
 with open('day02.txt') as f:
@@ -19,13 +18,13 @@ assert has_letter('a', 'abcde') == True
 assert has_letter('b', 'cdefg') == False
 
 def in_range(lo: str, hi: str, letter: str, pwd: str) -> bool:
-    counts = Counter(pwd)
-    return int(lo) <= counts[letter] <= int(hi)
+    counts = pwd.count(letter)
+    return int(lo) <= counts <= int(hi)
 
 assert in_range('1', '3', 'a', 'abcde') == True
 assert in_range('1', '3', 'b', 'cdefg') == False
 
-def count_valid_passwords(pwds: List[str]) -> int:
+def count_valid_passwords(pwds: List[List[str]]) -> int:
     total = 0
     for line in pwds:
             lo, hi = line[0].split('-')
@@ -41,7 +40,7 @@ print(count_valid_passwords(inputs))
 
 # part 2
 
-def count_valid_passwords2(pwds: List['str']) -> int:
+def count_valid_passwords2(pwds: List[List['str']]) -> int:
     total = 0
     for line in pwds:
         lo, hi = line[0].split('-')
