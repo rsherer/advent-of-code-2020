@@ -36,7 +36,7 @@ class Forest(NamedTuple):
         start = Location(0, 0)
         encounters = 0
         forest = self.parse_forest()
-        length, width = self.parse_forest().shape
+        length, _ = self.parse_forest().shape
         while start.y < length - 1:
             start.y += self.rise
             start.x += self.run
@@ -60,8 +60,6 @@ example = [
 ]
 
 test_park = Forest(3, 1, example)
-# breakpoint()
-# print(test_park.parse_forest())
 assert test_park.count_tree_encounters() == 7, test_park.count_tree_encounters()
 
 park = Forest(3, 1, forest)
@@ -88,5 +86,4 @@ def get_trees_product(slopes: List[Tuple[int, int]], forest: List[str]) -> int:
 
 
 assert get_trees_product(slopes, example) == 336
-
 print(get_trees_product(slopes, forest))
