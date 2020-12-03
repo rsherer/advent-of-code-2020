@@ -27,7 +27,7 @@ class Forest(NamedTuple):
             ]
         width = len(self.trees[0])
         length = len(self.trees)
-        grove_length = length / self.rise #if l > rise else rise / l
+        grove_length = length / self.rise
         grove_width = grove_length * self.run // width + 1
 
         forest = np.concatenate([grove for _ in range(int(grove_width))], axis = 1)
