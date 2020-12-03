@@ -87,7 +87,7 @@ slopes = [
     (1, 2)
 ]
 
-def get_trees_product(slopes: List[Tuple[int]], forest: List[str]) -> int:
+def get_trees_product(slopes: List[Tuple[int, int]], forest: List[str]) -> int:
     total = 1
     for run, rise in slopes:
         park = Forest(run, rise, forest)
