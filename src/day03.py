@@ -38,7 +38,7 @@ class Forest(NamedTuple):
         start = Location(0, 0)
         encounters = 0
         forest = self.parse_forest()
-        length, width = forest.shape
+        length, width = self.parse_forest().shape
         while start.y < length - 1:
             start.y += self.rise
             start.x += self.run
@@ -63,7 +63,7 @@ example = [
 test_park =  Forest(3, 1, example)
 #breakpoint()
 #print(test_park.parse_forest())
-assert test_park.count_tree_encounters() == 7
+assert test_park.count_tree_encounters() == 7, test_park.count_tree_encounters()
 
 park = Forest(3, 1, forest)
 print(park.count_tree_encounters())
@@ -88,12 +88,10 @@ slopes = [
 ]
 
 def get_trees_product(slopes: List[Tuple[int, int]], forest: List[str]) -> int:
-    total = 1
-    for run, rise in slopes:
-        park = Forest(run, rise, forest)
-        total *= park.count_tree_encounters()
-    return total
-
+    return np.prod([
+        Forest(run, rise, forest).count_tree_encounters() 
+        for run, rise in slopes])
+    
 assert get_trees_product(slopes, example) == 336
 
 print(get_trees_product(slopes, forest))
