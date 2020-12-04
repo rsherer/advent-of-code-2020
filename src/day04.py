@@ -2,6 +2,7 @@
 
 # part, determine the number of valid passports.
 
+from string import printable
 from typing import Dict, List, NamedTuple, Set
 import string
 
