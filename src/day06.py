@@ -21,14 +21,15 @@ print(sum([count_answered(answers) for answers in parse_questionnaires(qs)]))
 # find the number of questions everyone answers the same
 
 def count_all_answered(answers: List[str]) -> int:
-    same = set(answers[0])
+    return len(set.intersection(*[set(a) for a in answers])) # one liner
+    # same = set(answers[0])
 
-    for a in answers[1:]:
-        try:
-            same = same.intersection(a)
-        except IndexError:
-            return len(same)
-    return len(same)
+    # for a in answers[1:]:
+    #     try:
+    #         same = same.intersection(a)
+    #     except IndexError:
+    #         return len(same)
+    # return len(same)
 
 assert count_all_answered(['abc']) == 3
 assert count_all_answered(['a', 'b', 'c']) == 0
