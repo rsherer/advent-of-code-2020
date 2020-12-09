@@ -69,13 +69,13 @@ print(is_invalid_preamble(XMAS, 25)) # 14144619
 # part 2, find two numbers in contiguous set which equal the invalid preamble
 # return the sum of the min and max
 
-def find_max_min(sequence: List[int], target: int) -> int:
+def sum_max_min(sequence: List[int], target: int) -> int:
     for i in range(len(sequence)):
         for j in range(2, len(sequence) + 1):
             if sum(sequence[i:j]) == target:
                 return sum([min(sequence[i:j]), max(sequence[i:j])])
 
-assert find_max_min([
+assert sum_max_min([
             35,
             20,
             15,
@@ -98,4 +98,4 @@ assert find_max_min([
             576,
         ], 127) == 62
 
-print(find_max_min(XMAS, 14144619))
+print(sum_max_min(XMAS, 14144619))
